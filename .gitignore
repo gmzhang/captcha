@@ -6,3 +6,15 @@ capgen/*.wav
 capgen/capgen
 cangensounds/cangensounds
 capexample/capexample
+
+
+main.log
+access.log
+
+main
+debug
+
+vendor/
+
+.idea/
+.vscode

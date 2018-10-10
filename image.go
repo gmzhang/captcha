@@ -33,7 +33,7 @@ type Image struct {
 
 // NewImage returns a new captcha image of the given width and height with the
 // given digits, where each digit must be in range 0-9.
-func NewImage(id string, digits []byte, width, height int) *Image {
+func NewImage(id string, digits []byte, width, height int, strikeThrough bool) *Image {
 	m := new(Image)
 
 	// Initialize PRNG.
@@ -58,7 +58,9 @@ func NewImage(id string, digits []byte, width, height int) *Image {
 		x += m.numWidth + m.dotSize
 	}
 	// Draw strike-through line.
-	m.strikeThrough()
+	if strikeThrough {
+		m.strikeThrough()
+	}
 	// Apply wave distortion.
 	m.distort(m.rng.Float(5, 10), m.rng.Float(100, 200))
 	// Fill image with random circles.
